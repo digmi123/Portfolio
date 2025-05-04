@@ -8,9 +8,22 @@
   --tw-shadow-color: #777777;
   --default-animation-duration: 3s;
   --header-size: calc(1.25rem + 0.75rem + 1.25rem);
+  
+  --border-animation-color: conic-gradient(transparent 0deg,
+      white 180deg,
+      transparent 180deg,
+      white 260deg);
 }
 
 @theme inline {
+
+  --breakpoint-*: initial;
+  --breakpoint-xl: 1280px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-md: 900px;
+  --breakpoint-sm: 600px;
+
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-text-muted: var(--text-muted);
@@ -23,6 +36,86 @@
   --font-roboto: var(--font-roboto);
   --font-bebas: var(--font-bebas);
 
+  --animate-spin: spin var(--tw-duration, 1s) var(--default-animation-timing-function, linear) var(--default-animation-delay, 0s) infinite;
+
+  --animate-spin-reverse: spin-reverse var(--tw-duration) linear infinite;
+
+  @keyframes spin-reverse {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes rotate-spin {
+    0% {
+      --rotation: 0deg;
+    }
+
+    100% {
+      --rotation: 360deg;
+    }
+  }
+
+
+}
+
+@layer components {
+
+  @property --rotation {
+      syntax: "<angle>";
+      inherits: false;
+      initial-value: 45deg;
+    }
+
+
+    .border-animation{
+      isolation: isolate;
+      transition: all 200ms ease-in;
+    }
+
+    .border-animation:hover {
+      scale: 110%;
+    }
+
+    .border-animation::after,
+    .border-animation::before{
+      content: "";
+      position: absolute;
+    }
+
+    .border-animation.cards::before{
+        --border-colors: transparent 0deg,
+              white 180deg,
+              transparent 180deg,
+              white 260deg
+    }
+
+    .border-animation.skills::before{
+        --border-colors: red,
+            orange,
+            yellow,
+            green,
+            blue,
+            red
+    }
+
+  .border-animation::before{
+    background: conic-gradient(from var(--rotation), var(--border-colors));
+    height: calc(100% + 2px);
+    width: calc(100% + 2px);
+    inset: 0;
+    z-index: -2;
+    animation: rotate-spin 10s linear infinite;
+  }
+
+  .border-animation::after{
+    inset: 0.25rem;
+    background-color: var(--color-background);
+    z-index: -1;
+  }
 }
 
 body {
