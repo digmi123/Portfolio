@@ -1,55 +1,49 @@
-import css from "../../public/css.svg";
-import javascript from "../../public/javascript.svg";
-import html from "../../public/html.svg";
-import react from "../../public/react.svg";
-import gcp from "../../public/gcp.svg";
-import nodejs from "../../public/nodejs.svg";
-import nextjs from "../../public/nextjs.svg";
-import vue from "../../public/vue.svg";
-import postgres from "../../public/postgres.svg";
-
 import Image from "next/image";
 
-function SkillsTree() {
-  const skills = [
-    css,
-    html,
-    javascript,
-    react,
-    nodejs,
-    nextjs,
-    vue,
-    postgres,
-    gcp,
-  ];
+interface Skill {
+  name: string;
+  path: string;
+}
 
+interface SkillsTreeProps {
+  skillCircleSize?: number;
+  innerCircleSize?: number;
+
+  size: number;
+  spin?: boolean;
+  skills: Skill[];
+}
+
+function SkillsTree({
+  skills,
+  size,
+  skillCircleSize = 50,
+  innerCircleSize = 100,
+  spin = false,
+}: SkillsTreeProps) {
+  const offset = 30;
   const numberOfSkills = skills.length;
   const angleStep = (360 / numberOfSkills) * (Math.PI / 180); // Angle between each node in radians
-  const radius = 150;
+  const radius = size / 2 - skillCircleSize / 2 - offset; // Radius of the circle
 
   return (
-    <div className="w-full h-full relative">
-      <div
-        id="fade-colors"
-        className="absolute inset-0 h-full rounded-full bg-conic/decreasing from-violet-700 via-lime-300 to-violet-700 blur-[50px] animate-spin"
-      ></div>
-
-      <div
-        id="black-circle"
-        className="absolute inset-0 h-full bg-background rounded-full"
-      ></div>
-
+    <div
+      style={{ width: `${size}px`, height: `${size}px`, aspectRatio: 1 }}
+      className={`border-animation skills relative h-full before:rounded-full before:blur-xl after:rounded-full mb-8 ${
+        spin ? "animate-spin" : ""
+      } duration-5000`}
+    >
       <div
         id="body-circle"
-        className="absolute top-1/2 left-1/2 p-4 border-2 border-foreground rounded-full w-40 h-40 flex items-center justify-center -translate-1/2 z-2 text-background bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,#ffffff,theme('colors.background'))]"
-      ></div>
+        className={`absolute top-1/2 left-1/2 p-4 border-2 border-foreground rounded-full flex items-center justify-center -translate-1/2 z-2 text-background bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,#ffffff,theme('colors.background'))]`}
+        style={{
+          width: `${innerCircleSize}px`,
+          height: `${innerCircleSize}px`,
+        }}
+      />
 
       {skills.map((skill, index) => {
         const angle = angleStep * index; // Calculate angle for each skill node
-
-        // Calculate the (x, y) position using polar-to-cartesian conversion
-        const y = -radius * Math.cos(angle);
-        const x = radius * Math.sin(angle);
 
         return (
           <div
@@ -58,6 +52,7 @@ function SkillsTree() {
             style={{ animationDelay: `${200 * index}ms` }}
           >
             <div
+              id="line"
               className="w-[1px] bg-foreground bottom-1/2 left-1/2 absolute origin-bottom"
               style={{
                 height: radius,
@@ -66,15 +61,19 @@ function SkillsTree() {
             />
             <div
               key={index}
-              className="outline rounded-full flex items-center absolute -translate-1/2 z-2 bg-background w-[50px] h-[50px] border-2 border-black p-2 justify-center"
+              className={`${
+                spin ? "animate-spin-reverse duration-5000" : ""
+              }   outline rounded-full flex items-center absolute -translate-1/2 z-2 bg-background border-2 border-black p-2 justify-center hover:scale-125 transition-transform`}
               style={{
-                top: `calc(50% + ${y}px)`,
-                left: `calc(50% + ${x}px)`,
+                top: `calc(50% + ${-radius}px * cos(${angle}))`,
+                left: `calc(50% + ${radius}px * sin(${angle}))`,
+                width: `${skillCircleSize}px`,
+                height: `${skillCircleSize}px`,
               }}
             >
               <Image
-                src={skill}
-                alt="texhnology"
+                src={skill.path}
+                alt="technology"
                 width={50}
                 height={50}
                 className="drop-shadow-[0_0_6px_#ffffff]"
