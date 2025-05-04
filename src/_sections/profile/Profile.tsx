@@ -5,17 +5,29 @@ import gmail from "../../../public/gmail.svg";
 import linkedin from "../../../public/linkedin.svg";
 import github from "../../../public/github.svg";
 
+const skills = [
+  { name: "css", path: "./css.svg" },
+  { name: "html", path: "./html.svg" },
+  { name: "javascript", path: "./javascript.svg" },
+  { name: "react", path: "./react.svg" },
+  { name: "nodejs", path: "./nodejs.svg" },
+  { name: "nextjs", path: "./nextjs.svg" },
+  { name: "vue", path: "./vue.svg" },
+  { name: "postgres", path: "./postgres.svg" },
+  { name: "gcp", path: "./gcp.svg" },
+];
+
 function Profile() {
   return (
-    <div id="profile-section" className="h-full flex">
-      <div id="left-side" className="w-2/4 flex flex-col gap-12">
-        <div id="top-details" className="flex items-center gap-8">
+    <div id="profile-section" className="max-md:flex-wrap h-full flex gap-4">
+      <div id="left-side" className="max-md:w-full w-2/4 flex flex-col gap-12">
+        <div id="top-details" className="flex items-center gap-8 flex-wrap">
           <Image
             src={adir}
             alt="profile picture"
             width={300}
             height={300}
-            className="rounded-full aspect-square object-cover"
+            className="rounded-full aspect-square object-cover max-md:w-[200px] max-md:h-[200px]"
           />
           <div id="my-details" className="">
             <div
@@ -62,10 +74,8 @@ function Profile() {
           without compromising quality.
         </p>
       </div>
-      <div id="right-side" className="w-2/4 flex justify-center">
-        <div className="w-[400px] h-[400px]">
-          <SkillsTree />
-        </div>
+      <div id="right-side" className="max-md:w-full w-2/4 flex justify-center">
+        <SkillsTree skills={skills} size={350} />
       </div>
     </div>
   );
