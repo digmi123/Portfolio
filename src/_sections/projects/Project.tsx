@@ -8,8 +8,11 @@ interface ProjectProps {
 
 function Project({ name, description, image }: ProjectProps) {
   return (
-    <div id="project" className="flex items-center justify-between gap-4">
-      <div id="content" className="max-w-[50%] flex flex-col gap-6">
+    <div id="project" className="flex justify-between gap-4 max-md:flex-col">
+      <div
+        id="content"
+        className="max-w-[50%] flex flex-col gap-6 max-md:max-w-full"
+      >
         <h2 id="project-name" className="text-2xl tracking-wide">
           {name}
         </h2>
