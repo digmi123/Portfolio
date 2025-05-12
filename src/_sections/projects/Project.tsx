@@ -8,11 +8,8 @@ interface ProjectProps {
 
 function Project({ name, description, image }: ProjectProps) {
   return (
-    <div id="project" className="flex justify-between gap-4 max-md:flex-col">
-      <div
-        id="content"
-        className="max-w-[50%] flex flex-col gap-6 max-md:max-w-full"
-      >
+    <div id="project" className="flex gap-8 justify-between flex-wrap">
+      <div id="content" className="min-w-1/2 flex-1 flex flex-col gap-8">
         <h2 id="project-name" className="text-2xl tracking-wide">
           {name}
         </h2>
@@ -27,13 +24,15 @@ function Project({ name, description, image }: ProjectProps) {
         </div>
       </div>
 
-      <Image
-        src={image}
-        alt="Project"
-        width={600}
-        height={300}
-        className="rounded-md"
-      />
+      <div id="image-wrapper" className="aspect-video block">
+        <Image
+          src={image}
+          alt="Project"
+          width={500}
+          height={400}
+          className="rounded-md object-cover"
+        />
+      </div>
     </div>
   );
 }
