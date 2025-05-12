@@ -70,8 +70,12 @@
       initial-value: 45deg;
     }
 
+    .hide-scroll::-webkit-scrollbar {
+      display: none;
+    }
 
-    .border-animation{
+
+    .border-animation {
       isolation: isolate;
       transition: all 200ms ease-in;
     }
