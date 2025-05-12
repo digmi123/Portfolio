@@ -14,7 +14,7 @@ function ExperienceItem() {
     <div
       id="experience-item"
       // bg-radial-[at_0%_0%] from-white to-zinc-900 to-75%
-      className="max-md:flex-wrap h-full flex rounded-md px-6 py-6 shadow-card shadow-[#777777]"
+      className="max-md:flex-wrap flex rounded-md px-6 py-4 shadow-card shadow-[#777777]"
     >
       <div
         id="left-side"

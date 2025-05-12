@@ -20,7 +20,7 @@ const skills = [
 function Profile() {
   return (
     <div id="profile-section" className="max-md:flex-wrap h-full flex gap-4">
-      <div id="left-side" className="max-md:w-full w-2/4 flex flex-col gap-12">
+      <div id="left-side" className="max-md:w-full w-2/4 flex flex-col gap-6">
         <div id="top-details" className="flex items-center gap-8 flex-wrap">
           <Image
             src={adir}
@@ -60,9 +60,9 @@ function Profile() {
           </div>
         </div>
 
-        <p className="text-4xl font-bebas italic">
+        <p className="text-4xl font-bebas italic max-md:text-2xl">
           An experienced web
-          <span className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text text-6xl">
+          <span className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text text-6xl max-md:text-4xl">
             {" "}
             developer{" "}
           </span>
