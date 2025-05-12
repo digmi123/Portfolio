@@ -6,7 +6,7 @@ interface ProjectCardProps {
   projectName: string;
   description: string;
   technologies: string[];
-  setActive: (index: number) => void;
+  setActive?: (index: number) => void;
   activeIndex: number;
 }
 
@@ -15,16 +15,16 @@ function ProjectCard({
   projectName,
   description,
   technologies,
-  activeIndex,
   setActive,
 }: ProjectCardProps) {
+  const handleClick = () => {
+    if (setActive) {
+      setActive(index);
+    }
+  };
   return (
     <GeneralCard active={false}>
-      <div
-        id="click-handler"
-        className="cursor-pointer"
-        onClick={() => setActive(index)}
-      >
+      <div id="click-handler" className="cursor-pointer" onClick={handleClick}>
         <div id="top" className="flex items-center justify-between gap-4">
           <div id="left" className="flex flex-col gap-1">
             <h2 id="title" className="text-2xl font-bold text-foreground">

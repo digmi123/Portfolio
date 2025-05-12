@@ -2,6 +2,7 @@
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import Project from "./Project";
+import Carousel from "@/_components/Carousel";
 
 const projects = [
   {
@@ -36,34 +37,30 @@ const projects = [
 
 function Projects() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+
   return (
-    <div
-      id="projects-section"
-      className="flex flex-col gap-4 h-full justify-between"
-    >
+    <div id="projects-section" className="flex flex-col h-full">
       {/* Project */}
-      <div className="relative h-80 max-md:h-screen">
-        {projects.map((project, index) => (
-          <div
+      {/* An outer div with overflow-hidden */}
+
+      <Carousel
+        activeIndex={activeProjectIndex}
+        setActiveIndex={setActiveProjectIndex}
+      >
+        {projects.map((project) => (
+          <Project
             key={project.projectName}
-            className="absolute inset-0 transition-opacity duration-500 ease-in-out"
-            style={{
-              opacity: activeProjectIndex === index ? 1 : 0,
-            }}
-          >
-            <Project
-              name={project.projectName}
-              description={project.description}
-              image={project.previewImage}
-            />
-          </div>
+            name={project.projectName}
+            description={project.description}
+            image={project.previewImage}
+          />
         ))}
-      </div>
+      </Carousel>
 
       {/* Thumbnails */}
       <div
         id="Thumbnails"
-        className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-20"
+        className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-20 max-xl:hidden"
       >
         {projects.map((project, index) => (
           <ProjectCard
