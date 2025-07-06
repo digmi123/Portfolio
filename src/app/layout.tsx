@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Bebas_Neue } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/_components/Navbar";
+import Navbar from "@/components/Navbar";
 
 const geistBebas = Bebas_Neue({
   variable: "--font-bebas",
@@ -30,7 +30,9 @@ export default function RootLayout({
         className={`${geistRoboto.variable} ${geistBebas.variable} antialiased flex flex-col min-h-screen dark`}
       >
         <Navbar />
-        <main className="flex flex-col px-12 py-8 h-full">{children}</main>
+        <main className="flex flex-col px-12 pt-8 h-full max-md:px-3 max-md:py-8">
+          {children}
+        </main>
       </body>
     </html>
   );
