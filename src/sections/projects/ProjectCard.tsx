@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GeneralCard from "../experience/_components/GeneralCard";
+import GeneralCard from "../experience/components/GeneralCard";
 
 interface ProjectCardProps {
   index: number;
@@ -51,12 +51,7 @@ function ProjectCard({
         </div>
 
         <div id="footer" className="p-2">
-          <p className="text-text-muted">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-            impedit omnis soluta, minus, quae reprehenderit officia dolorum vel
-            laudantium ex natus vero? Accusamus eum voluptates earum quidem
-            saepe recusandae possimus.
-          </p>
+          <p className="text-lg">{description}</p>
         </div>
       </div>
     </GeneralCard>

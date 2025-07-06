@@ -29,7 +29,7 @@ function SkillsTree({
   return (
     <div
       style={{ width: `${size}px`, height: `${size}px`, aspectRatio: 1 }}
-      className={`border-animation skills relative h-full before:rounded-full before:blur-xl after:rounded-full mb-8 ${
+      className={`border-animation skills relative h-full before:rounded-full before:blur-lg after:rounded-full mb-8 ${
         spin ? "animate-spin" : ""
       } duration-5000`}
     >

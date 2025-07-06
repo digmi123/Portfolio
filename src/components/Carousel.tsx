@@ -1,4 +1,4 @@
-import ScrollIndicator from "@/_sections/projects/ScrollIndicator";
+import ScrollIndicator from "@/sections/projects/ScrollIndicator";
 import {
   ReactNode,
   UIEvent,
@@ -16,6 +16,7 @@ interface CarouselProps {
 
 function Carousel({ children, activeIndex }: CarouselProps) {
   const [_activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
 
   const childrenRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -24,10 +25,19 @@ function Carousel({ children, activeIndex }: CarouselProps) {
     const scrolled = event.currentTarget.scrollLeft;
     const index = Math.round(scrolled / width);
     setActiveIndex(index);
+    // ScrollToIndex(index);
   };
 
   const ScrollToIndex = useCallback((index: number) => {
-    childrenRefs.current.at(index)?.scrollIntoView();
+    const container = carouselRef.current;
+    const child = childrenRefs.current.at(index);
+    console.log(container, child);
+
+    if (container && child)
+      container.scrollTo({
+        left: child.offsetLeft,
+        behavior: "smooth",
+      });
   }, []);
 
   useEffect(() => {
@@ -39,6 +49,7 @@ function Carousel({ children, activeIndex }: CarouselProps) {
       <div
         className="w-full flex hide-scroll overflow-x-auto snap-x snap-mandatory scroll-smooth transition-transform duration-500"
         onScroll={handleScroll}
+        ref={carouselRef}
       >
         {children.map((child, index) => (
           <div
