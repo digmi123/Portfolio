@@ -4,7 +4,6 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
-  --text-muted: #999999;
   --tw-shadow-color: #777777;
   --default-animation-duration: 3s;
   --header-size: calc(1.25rem + 0.75rem + 1.25rem);
@@ -80,10 +79,6 @@
       transition: all 200ms ease-in;
     }
 
-    .border-animation:hover {
-      scale: 110%;
-    }
-
     .border-animation::after,
     .border-animation::before{
       content: "";
@@ -91,10 +86,15 @@
     }
 
     .border-animation.cards::before{
-        --border-colors: transparent 0deg,
-              white 180deg,
-              transparent 180deg,
-              white 260deg
+        --border-colors: 
+              transparent 0deg,
+              red 40deg,
+              orange 50deg,
+              yellow 70deg,
+              green 100deg,
+              purple 115deg,
+              blue 130deg,
+              transparent 80deg
     }
 
     .border-animation.skills::before{
@@ -120,6 +120,7 @@
     background-color: var(--color-background);
     z-index: -1;
   }
+
 }
 
 body {
