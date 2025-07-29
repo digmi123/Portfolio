@@ -16,6 +16,7 @@ function ProjectCard({
   description,
   technologies,
   setActive,
+  activeIndex,
 }: ProjectCardProps) {
   const handleClick = () => {
     if (setActive) {
@@ -23,7 +24,7 @@ function ProjectCard({
     }
   };
   return (
-    <GeneralCard active={false}>
+    <GeneralCard active={activeIndex === index}>
       <div id="click-handler" className="cursor-pointer" onClick={handleClick}>
         <div id="top" className="flex items-center justify-between gap-4">
           <div id="left" className="flex flex-col gap-1">
