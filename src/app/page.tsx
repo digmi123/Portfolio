@@ -14,21 +14,15 @@ export default function Home() {
 
       <GradientDivider />
 
-      <ScreenWrapper>
-        <Experience />
-      </ScreenWrapper>
+      <Experience />
 
       <GradientDivider />
 
-      <ScreenWrapper>
-        <Projects />
-      </ScreenWrapper>
+      <Projects />
 
       <GradientDivider />
 
-      <ScreenWrapper>
-        <Contact />
-      </ScreenWrapper>
+      <Contact />
     </>
   );
 }
