@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { cn } from "@/utlis";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,13 +22,18 @@ export default function Navbar() {
       <div className="md:hidden flex flex-col items-center">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="bg-white/70 backdrop-blur backdrop-hue-rotate-270 text-background px-4 py-2 rounded-full text-lg uppercase shadow-md"
+          className="overflow-hidden transition-[400] duration-500 ease-in-out bg-white/70 backdrop-blur backdrop-hue-rotate-270 text-background px-4 py-2 rounded-full text-lg uppercase shadow-md"
         >
           ☰ Menu
         </button>
 
-        {menuOpen && (
-          <div className="mt-2 flex flex-col items-center gap-2 bg-white/70 backdrop-blur backdrop-hue-rotate-270 text-background px-6 py-4 rounded-xl text-base uppercase w-[90%] max-w-xs shadow-lg transition-all duration-300">
+        <div
+          className={cn(
+            "mt-2 flex flex-col items-center gap-2 bg-white/70 backdrop-blur backdrop-hue-rotate-270 text-background rounded-xl text-base uppercase w-[90%] max-w-xs shadow-lg transition-all duration-300 interpolated overflow-hidden",
+            menuOpen ? "h-auto" : "h-0"
+          )}
+        >
+          <div className="flex flex-col items-center gap-2 my-4 mx-6">
             <Link href="#profile-section" onClick={() => setMenuOpen(false)}>
               Profile
             </Link>
@@ -41,7 +47,7 @@ export default function Navbar() {
               Contact
             </Link>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

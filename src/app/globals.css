@@ -123,11 +123,16 @@
 
 }
 
+.interpolated {
+  interpolate-size: allow-keywords;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-roboto), Arial, Helvetica, sans-serif;
 }
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
