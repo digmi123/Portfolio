@@ -31,7 +31,7 @@ const projects = [
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam excepturi, officiis cum natus cumque sunt deserunt rerum exercitationem debitis accusamus commodi nesciunt doloribus quis accusantium nam obcaecati eos. Libero, doloribus.",
     cardDescription:
-      "A full-stack task management app with Desks, Boards, Columns, and drag-and-drop Tasks. Includes user auth, team workspaces, and a responsive UI with real-time state sync.",
+      "A full-featured e-commerce platform for beauty products, with categories, product listings, user reviews, and seamless checkout. Includes user authentication, admin dashboard, and responsive design with real-time inventory updates and secure payment integration.",
     previewImage: "/add-task.gif",
     repoLink: "https://github.com/digmi123/Makeup-store",
   },
@@ -53,7 +53,7 @@ function Projects() {
   return (
     <div
       id="projects-section"
-      className="flex flex-col gap-8 flex-1 justify-between"
+      className="flex flex-col gap-8 flex-1 justify-between min-h-screen"
     >
       <Carousel
         activeIndex={activeProjectIndex}
