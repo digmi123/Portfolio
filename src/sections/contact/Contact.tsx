@@ -23,8 +23,9 @@ export default function Contact() {
           </span>
         </h2>
         <p className="text-gray-300 max-w-md mx-auto text-xl">
-          If you're the kind of legend who still believes in heartfelt emails
-          over chaotic DMs—this one’s for you. Drop your note below.
+          If you&apos;re the kind of legend who still believes in heartfelt
+          emails over chaotic DMs&mdash;this one&rsquo;s for you. Drop your note
+          below.
         </p>
       </div>
 
