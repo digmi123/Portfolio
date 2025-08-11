@@ -12,7 +12,7 @@ const projects = [
       "Developed a full-stack task management web app inspired by Trello and Jira, featuring Desks, Boards, Columns, and drag-and-drop Tasks. Implemented user authentication, organization management, and shared workspaces for collaboration. Designed a dynamic, responsive UI with efficient state management and database integration.",
     cardDescription:
       "A full-stack task management app with Desks, Boards, Columns, and drag-and-drop Tasks. Includes user auth, team workspaces, and a responsive UI with real-time state sync.",
-    previewImage: "/add-task.gif",
+    previewImage: "./add-task.gif",
     repoLink: "https://github.com/digmi123/TASK.IT",
   },
   {
@@ -22,7 +22,7 @@ const projects = [
       "Developed a full-stack web app for managing and sharing todos, Implemented features for posting, saving, and commenting on todos, as well as a friend system with requests and lists. Designed a dynamic, interactive user experience with efficient data handling.",
     cardDescription:
       "A full-stack app for managing and sharing todos with friends. Features posting, saving, commenting, and friend requests—all in a responsive, interactive UI.",
-    previewImage: "/add-task.gif",
+    previewImage: "./add-task.gif",
     repoLink: "https://github.com/digmi123/Social-Todo-App",
   },
   {
@@ -32,19 +32,19 @@ const projects = [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam excepturi, officiis cum natus cumque sunt deserunt rerum exercitationem debitis accusamus commodi nesciunt doloribus quis accusantium nam obcaecati eos. Libero, doloribus.",
     cardDescription:
       "A full-featured e-commerce platform for beauty products, with categories, product listings, user reviews, and seamless checkout. Includes user authentication, admin dashboard, and responsive design with real-time inventory updates and secure payment integration.",
-    previewImage: "/add-task.gif",
+    previewImage: "./add-task.gif",
     repoLink: "https://github.com/digmi123/Makeup-store",
   },
-  {
-    projectName: "PLACEHOLDER",
-    technologies: ["React", "Node.js"],
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam excepturi, officiis cum natus cumque sunt deserunt rerum exercitationem debitis accusamus commodi nesciunt doloribus quis accusantium nam obcaecati eos. Libero, doloribus.",
-    cardDescription:
-      "A full-stack task management app with Desks, Boards, Columns, and drag-and-drop Tasks. Includes user auth, team workspaces, and a responsive UI with real-time state sync.",
-    previewImage: "/add-task.gif",
-    repoLink: "",
-  },
+  // {
+  //   projectName: "PLACEHOLDER",
+  //   technologies: ["React", "Node.js"],
+  //   description:
+  //     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam excepturi, officiis cum natus cumque sunt deserunt rerum exercitationem debitis accusamus commodi nesciunt doloribus quis accusantium nam obcaecati eos. Libero, doloribus.",
+  //   cardDescription:
+  //     "A full-stack task management app with Desks, Boards, Columns, and drag-and-drop Tasks. Includes user auth, team workspaces, and a responsive UI with real-time state sync.",
+  //   previewImage: "./add-task.gif",
+  //   repoLink: "",
+  // },
 ];
 
 function Projects() {

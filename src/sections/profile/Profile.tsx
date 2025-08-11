@@ -48,7 +48,7 @@ function Profile() {
                 <Image
                   width={30}
                   height={30}
-                  src="/hit.jpg"
+                  src="./hit.jpg"
                   alt="HIT-logo"
                   className="rounded-md"
                 />

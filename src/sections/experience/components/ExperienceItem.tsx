@@ -21,7 +21,7 @@ function ExperienceItem() {
         className="max-md:w-full flex flex-col gap-3 pr-4 w-2/6 max-md:items-center"
       >
         <Image
-          src="/gist-logo.webp"
+          src="./gist-logo.webp"
           alt="company-logo"
           width={250}
           height={250}
