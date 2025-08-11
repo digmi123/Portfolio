@@ -1,11 +1,16 @@
 import * as React from "react";
-const SvgComponent = (props) => (
+
+type Props = React.SVGProps<SVGSVGElement>;
+
+const StarSVG = ({ className, ...props }: Props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
     width={40}
     height={40}
     fill="currentColor"
-    viewBox="0 0 24 24"
+    className={className}
+    aria-hidden="true"
     {...props}
   >
     <path
@@ -16,4 +21,5 @@ const SvgComponent = (props) => (
     />
   </svg>
 );
-export default SvgComponent;
+
+export default StarSVG;
